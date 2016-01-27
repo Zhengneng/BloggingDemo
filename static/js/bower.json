@@ -1,0 +1,23 @@
+{
+  "name": "js",
+  "homepage": "https://github.com/Zhengneng/BloggingDemo",
+  "authors": [
+    "Di Lu <ludibupt@gmail.com>",
+    "Zhengneng Qiu <qiuzhengneng@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.14.6",
+    "jquery": "~2.2.0"
+  }
+}

@@ -1,0 +1,4 @@
+ # top level directories with generated content
+
+/node_modules/*
+/static/js/bower_components/*

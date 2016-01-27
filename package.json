@@ -1,0 +1,23 @@
+{
+  "name": "bloggingdemo",
+  "version": "1.0.0",
+  "description": "Django Project Take 1",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babelify": "^7.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhengneng/BloggingDemo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zhengneng/BloggingDemo/issues"
+  },
+  "homepage": "https://github.com/Zhengneng/BloggingDemo#readme"
+}
