@@ -16,7 +16,7 @@ from os.path import abspath, basename, dirname, join, normpath
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Replace BASE_DIR with this
-DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+DJANGO_ROOT = (dirname(abspath(__file__)))
 SITE_ROOT = dirname(DJANGO_ROOT)
 SITE_NAME = basename(DJANGO_ROOT)
 
@@ -111,6 +111,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
+
 STATICFILES_DIRS = ()
 
 
@@ -128,9 +129,6 @@ PIPELINE_COMPILERS = (
     'pipeline_browserify.compiler.BrowserifyCompiler',
 )
 
-PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.uglifyjs.UglifyJSCompressor'
-
 if DEBUG:
     PIPELINE_BROWSERIFY_ARGUMENTS = '-t babelify'
 
@@ -139,19 +137,28 @@ if DEBUG:
 # }
 
 PIPELINE = {
-    'bloggingdemo_css': {
-        'source_filenames': (
-            'css/style.css',
-        ),
-        'output_filename': 'css/bloggingdemo_css.css',
+    'STYLESHEETS': {
+        'app': {
+            'source_filenames': (
+                'css/style.css',
+            ),
+            'output_filename': 'css/app_css.css',
+        }
     },
-    'bloggingdemo_js': {
-        'source_filenames': (
-            'js/bower_components/jquery/dist/jquery.min.js',
-            'js/bower_components/react/JSXTransformer.js',
-            'js/bower_components/react/react-with-addons.js',
-            'js/app.browserify.js',
-        ),
-        'output_filename': 'js/bloggingdemo_js.js',
+    'JAVASCRIPT': {
+        'app': {
+            'source_filenames': (
+                'js/bower_components/jquery/dist/jquery.min.js',
+                'js/bower_components/react/JSXTransformer.js',
+                'js/bower_components/react/react-with-addons.js',
+                'js/app.browserify.js',
+            ),
+            'output_filename': 'js/app_js.js',
+        }
+
     }
 }
+
+PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
+PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
+

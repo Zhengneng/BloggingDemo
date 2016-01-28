@@ -2,3 +2,7 @@
 
 /node_modules/*
 /static/js/bower_components/*
+/static/admin/*
+/static/js/app_js.*
+/static/rest_framework/*
+/static/css/app_css.*
