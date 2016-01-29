@@ -137,15 +137,15 @@ if DEBUG:
 # }
 
 PIPELINE = {
-    'STYLESHEETS': {
+	'STYLESHEETS': {
         'app': {
             'source_filenames': (
                 'css/style.css',
             ),
             'output_filename': 'css/app_css.css',
-        }
+	    }
     },
-    'JAVASCRIPT': {
+        'JAVASCRIPT':{
         'app': {
             'source_filenames': (
                 'js/bower_components/jquery/dist/jquery.min.js',
@@ -155,8 +155,7 @@ PIPELINE = {
             ),
             'output_filename': 'js/app_js.js',
         }
-
-    }
+	}
 }
 
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
