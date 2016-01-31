@@ -6,3 +6,5 @@
 /static/js/app_js.*
 /static/rest_framework/*
 /static/css/app_css.*
+*.pyc
+db.sqlite3
