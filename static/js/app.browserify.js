@@ -1,19 +1,16 @@
 'use strict';
 
-var $ = require('jquery');
-var React = require('react');
 
-var TestApp = React.createClass({
-  render: function() {
-    return (
-      <div className="page">
-        <h1>Oh shit! React works!</h1>
-      </div>
-    );
-  }
+var HelloMessage = React.createClass({
+  displayName: "HelloMessage",
+
+  render: function render() {
+   	return React.createElement(
+	      "div",
+	        null,
+		"Oh shit! React works!"
+	);	
+	}
 });
-
-React.render(
-  React.createElement(TestApp, null),
-  document.getElementById('content')
-);
+React.render(React.createElement(HelloMessage,null), 
+document.getElementById('content'));
