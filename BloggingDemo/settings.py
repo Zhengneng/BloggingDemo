@@ -161,3 +161,7 @@ PIPELINE = {
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
 PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}
