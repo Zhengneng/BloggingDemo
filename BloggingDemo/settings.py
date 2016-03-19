@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'pipeline',
     # DRF
     'rest_framework',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
