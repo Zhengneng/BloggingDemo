@@ -29,8 +29,6 @@ SECRET_KEY = ')r)$8g6rzfj+g=7ys_*67r+_o90p-f*#hon12cw4b_^mbt8^(o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -68,6 +66,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates'],
         'APP_DIRS': True,
+        'TEMPLATE_DEBUG': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

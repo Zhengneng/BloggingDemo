@@ -43,25 +43,12 @@ def blog_post_detail(request, pk):
 
     elif request.method == 'PUT':
         data = JSONParser().parse(request)
-        serializer = BlogPostSerializer(sni)
+        serializer = BlogPostSerializer(blog_post, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data)
+        return JSONResponse(serializer.errors, status=400)
 
-
-# class UserViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows users to be viewed or edited.
-#     """
-#     queryset = User.objects.all().order_by('-date_joined')
-#     serializer_class = UserSerializer
-#
-#
-# class GroupViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows groups to be viewed or edited.
-#     """
-#     queryset = Group.objects.all()
-#     serializer_class = GroupSerializer
-#
-#
-#
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the blog index.")
+    elif request.method == 'DELETE':
+        blog_post.delete()
+        return HttpResponse(status=204)
