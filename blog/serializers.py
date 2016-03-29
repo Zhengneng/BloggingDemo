@@ -1,24 +1,20 @@
 from rest_framework import serializers
 from blog.models import BlogPost
+from django.contrib.auth.models import User
 
+class UserSerializer(serializers.ModelSerializer):
+    blogpost = serializers.PrimaryKeyRelatedField(many=True, queryset=BlogPost.objects.all())
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'blogpost')
 
 class BlogPostSerializer(serializers.ModelSerializer):
-    # pk = serializers.IntegerField(read_only=True)
-    # user_id = serializers.IntegerField()
-    # content = serializers.CharField(required=False)
-    # title = serializers.CharField(max_length=100)
-    #
-    # def create(self, validated_data):
-    #     return BlogPost.objects.create(**validated_data)
-    #
-    # def update(self, instance, validated_data):
-    #
-    #     instance.user_id = validated_data.get('user_id', instance.user_id)
-    #     instance.content = validated_data.get('content', instance.content)
-    #     instance.title = validated_data.get('title', instance.title)
-    #     instance.save()
-    #
-    #     return instance
+
+    owner = serializers.ReadOnlyField(source='owner.username')
+
     class Meta:
         model = BlogPost
-        fields = ('created', 'user_id', 'content', 'title')
+        fields = ('created', 'user_id', 'content', 'title', 'owner')
+
+

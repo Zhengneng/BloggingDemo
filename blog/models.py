@@ -11,6 +11,8 @@ class BlogPost(models.Model):
     user_id = models.IntegerField()
     content = models.TextField()
     title = models.CharField(max_length=100, default='')
+    owner = models.ForeignKey('auth.User', related_name='blog')
+    highlighted = models.TextField()
 
     class Meta:
         ordering = ('created',)
